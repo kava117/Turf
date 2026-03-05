@@ -5,6 +5,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public PlayerTurnState PlayerTurnState { get; private set; }
+    public EnemyTurnState EnemyTurnState { get; private set; }
+    public CheckWinState CheckWinState { get; private set; }
+    public GameOverState GameOverState { get; private set; }
+
+
+    private IGameState _currentState;
     public GameState currentState { get; private set; }
     public BaseMatchProfile activePlayer { get; private set; }
     public int actionsRemaining { get; private set; }
@@ -24,14 +31,25 @@ public class GameManager : MonoBehaviour
     /* 
     ---------------- GAME LOGIC ------------------
     */
+public void InitStates(BaseMatchProfile player, BaseMatchProfile ai)
+    {
+        PlayerTurnState = new PlayerTurnState(this, player);
+        EnemyTurnState = new EnemyTurnState(this, ai);
+        CheckWinState = new CheckWinState(this, player, ai);
+        GameOverState = new GameOverState(this);
+    }
+
+    void Update() => _currentState?.Tick(); // checking for an end turn condition
+
     public void TransitionTo(GameState newState)
     {
+        currentState?.Exit();
         currentState = newState;
+        currentState.Enter();
 
         switch (newState)
         {
             case GameState.PlayerTurn:  
-                StartPlayerTurn();
                 // blah blah write here what it does
                 break;
             case GameState.EnemyTurn:    
