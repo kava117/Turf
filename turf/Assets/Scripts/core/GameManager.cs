@@ -3,11 +3,11 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set };
+    public static GameManager Instance { get; private set; }
 
-    public GameState CurrentState { get; private set}
-    public Player ActivePlayer { get; private set}
-    public int ActionsRemaining { get; private set}
+    public GameState currentState { get; private set; }
+    public BaseMatchProfile activePlayer { get; private set; }
+    public int actionsRemaining { get; private set; }
 
     
     void Awake()
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     */
     public void TransitionTo(GameState newState)
     {
-        CurrentState = newState;
+        currentState = newState;
 
         switch (newState)
         {

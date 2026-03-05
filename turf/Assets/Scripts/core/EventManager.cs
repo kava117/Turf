@@ -11,7 +11,7 @@ public class EventManager
     public static void TileCaptured(Vector3Int cell, PlayerPrefs owner) 
         => OnTileCaptured?.Invoke(cell, owner);
 
-    public static void TurnStarted(Player player) 
+    public static void TurnStarted(BasePlayer player) 
         => OnTurnStarted?.Invoke(player);
 
     public static void NumActionsChanged(int remaining)
