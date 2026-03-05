@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IStateBehavior
+public interface IGameState
 {
     void Enter(); // call when transitioning into the state
     void Tick(); // call every Update()

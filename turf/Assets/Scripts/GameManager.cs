@@ -30,9 +30,18 @@ public class GameManager : MonoBehaviour
 
         switch (newState)
         {
-            case GameState.PlayerTurn:  StartPlayerTurn(); break;
-            case GameState.EnemyTurn:    StartEnemyTurn(); break;
-            case GameState.CheckWin:    CheckWinCondition(); break;
+            case GameState.PlayerTurn:  
+                StartPlayerTurn();
+                // blah blah write here what it does
+                break;
+            case GameState.EnemyTurn:    
+                StartEnemyTurn();
+                // blah blah write here what it does
+                break;
+            case GameState.CheckWin:    
+                CheckWinCondition(); 
+                // blah blah write here what it does
+                break;
         }
     }
 
