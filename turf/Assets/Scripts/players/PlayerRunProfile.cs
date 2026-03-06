@@ -19,6 +19,6 @@ public class PlayerRunProfile : MonoBehaviour
     public void AddPerk(PerkData perk)
     {
         activePerks.Add(perk);
-        bonusActions += perk.BonusActions;
+        //bonusActions += perk.bonusActions;
     }
 }

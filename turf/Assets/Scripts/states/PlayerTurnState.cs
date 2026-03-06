@@ -3,26 +3,26 @@ using UnityEngine;
 
 public class PlayerTurnState : IGameState
 {
-    private GameManager gm;
+    private GameManager _gm;
 
-    public PlayerTurnState(GameManager _gm)
+    public PlayerTurnState(GameManager gm)
     {
-        gm = _gm;
+        _gm = gm;
     }
 
     public void Enter()
     {
-        gm.ResetActions();
-        EventBus.TurnStarted(gm.ActivePlayer);
+        //gm.ResetActions();
+        //EventBus.TurnStarted(gm.ActivePlayer);
     }
 
     public void Tick()
     {
         // check for input using whatever class i end up making
-        if (gm.ActionsRemaining <= 0)
-        {
-            gm.TransitionTo(gm.EnemyTurnState);
-        }
+        //if (gm.ActionsRemaining <= 0)
+        //{
+        //    gm.TransitionTo(gm.EnemyTurnState);
+        //}
     }
 
     public void Exit()

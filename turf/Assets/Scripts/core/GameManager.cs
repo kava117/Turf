@@ -33,19 +33,19 @@ public class GameManager : MonoBehaviour
     */
 public void InitStates(BaseMatchProfile player, BaseMatchProfile ai)
     {
-        PlayerTurnState = new PlayerTurnState(this, player);
-        EnemyTurnState = new EnemyTurnState(this, ai);
-        CheckWinState = new CheckWinState(this, player, ai);
-        GameOverState = new GameOverState(this);
+        //PlayerTurnState = new PlayerTurnState(this, player);
+        //EnemyTurnState = new EnemyTurnState(this, ai);
+        //CheckWinState = new CheckWinState(this, player, ai);
+        //GameOverState = new GameOverState(this);
     }
 
     void Update() => _currentState?.Tick(); // checking for an end turn condition
 
     public void TransitionTo(GameState newState)
     {
-        currentState?.Exit();
-        currentState = newState;
-        currentState.Enter();
+        //currentState?.Exit();
+        //currentState = newState;
+        //currentState.Enter();
 
         switch (newState)
         {
@@ -53,11 +53,11 @@ public void InitStates(BaseMatchProfile player, BaseMatchProfile ai)
                 // blah blah write here what it does
                 break;
             case GameState.EnemyTurn:    
-                StartEnemyTurn();
+                //StartEnemyTurn();
                 // blah blah write here what it does
                 break;
             case GameState.CheckWin:    
-                CheckWinCondition(); 
+                //CheckWinCondition(); 
                 // blah blah write here what it does
                 break;
         }
